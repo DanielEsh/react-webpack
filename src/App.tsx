@@ -1,7 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 
-import './color.css';
 import s from './App.module.scss';
 
 const App = () => {
