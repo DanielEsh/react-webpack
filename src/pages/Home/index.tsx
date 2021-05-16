@@ -16,7 +16,9 @@ const HomePage = () => {
 
         <Heading type="h3">You can know the type of Pokemon, its strengths, disadvantages and abilities</Heading>
 
-        <Button>Test</Button>
+        <Button color="green" size="large">
+          Test
+        </Button>
         <Parallax />
       </div>
     </div>
