@@ -7,6 +7,7 @@
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
     "start": "env NODE_ENV=development webpack serve",
+    "eslint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Daniel <daniilterawars@gmail.com>",
