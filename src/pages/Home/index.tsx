@@ -1,4 +1,6 @@
 import React from 'react';
+import { navigate } from 'hookrouter';
+import { LinkEnum } from '../../routes';
 
 import Header from '../../components/Header';
 
@@ -18,7 +20,7 @@ const HomePage = () => {
 
           <Heading type="h3">You can know the type of Pokemon, its strengths, disadvantages and abilities</Heading>
 
-          <Button color="green" size="large">
+          <Button color="green" size="large" onClick={() => navigate(LinkEnum.POKEDEX)}>
             Test
           </Button>
         </div>
