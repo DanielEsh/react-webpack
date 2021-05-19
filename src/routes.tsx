@@ -1,6 +1,7 @@
 import React from 'react';
 import HomePage from './pages/Home';
 import EmptyPage from './pages/EmptyPage';
+import PokedexPage from './pages/Pokedex';
 
 export enum LinkEnum {
   HOME = '/',
@@ -18,7 +19,7 @@ const MENU_ITEMS = [
   {
     title: 'Pokédex',
     link: LinkEnum.POKEDEX,
-    component: () => <EmptyPage title="Pokedex" />,
+    component: () => <PokedexPage />,
   },
   {
     title: 'Legendaries',
