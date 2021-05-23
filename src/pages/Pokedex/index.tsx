@@ -218,7 +218,7 @@ const pokemons = [
   },
 ];
 
-const PokedexPage = () => {
+const PokedexPage: React.FC = () => {
   return (
     <div>
       <Header />
@@ -232,7 +232,7 @@ const PokedexPage = () => {
           </div>
           <div className={s.pokemons}>
             {pokemons.map((item) => (
-              <PokemonCard name={item.name} stats={item.stats} types={item.types} img={item.img} />
+              <PokemonCard key={item.id} name={item.name} stats={item.stats} types={item.types} img={item.img} />
             ))}
           </div>
         </div>
