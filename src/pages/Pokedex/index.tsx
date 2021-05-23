@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../components/Header';
+
 import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokedexCard';
 
@@ -221,7 +221,6 @@ const pokemons = [
 const PokedexPage: React.FC = () => {
   return (
     <div>
-      <Header />
       <div className={s.root}>
         <div className={s.layout}>
           <div className={s.searchFilter}>

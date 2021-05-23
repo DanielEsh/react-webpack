@@ -2,18 +2,16 @@ import React from 'react';
 import { navigate } from 'hookrouter';
 import { LinkEnum } from '../../routes';
 
-import Header from '../../components/Header';
-
-import s from './Home.module.scss';
 import Button from '../../components/Button';
 import Parallax from '../../components/Parallax';
 import Heading from '../../components/Heading';
 import Layout from '../../components/Layout';
 
+import s from './Home.module.scss';
+
 const HomePage = () => {
   return (
     <div className={s.root}>
-      <Header />
       <Layout className={s.contentWrap}>
         <div className={s.contentText}>
           <Heading type="h1">Find all your favorite Pokemon</Heading>
