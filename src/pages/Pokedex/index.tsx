@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
+import usePokemons from '../../hooks/usePokemons';
 
 import Heading from '../../components/Heading';
 import PokemonCard from '../../components/PokedexCard';
@@ -6,29 +8,10 @@ import PokemonCard from '../../components/PokedexCard';
 import s from './Pokedex.module.scss';
 
 const PokedexPage: React.FC = () => {
-  const [totalPokemons, setTotalPokemons] = useState<number>(0);
-  const [pokemons, setPokemons] = useState([]); // TODO: добавить интерфейс для покемонов
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isError, setIsError] = useState<boolean>(false);
+  const { data, error, isLoading } = usePokemons();
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch('http://zar.hosthot.ru/api/v1/pokemons')
-      .then((res) => res.json())
-      .then((data) => {
-        setTotalPokemons(data.total);
-        setPokemons(data.pokemons);
-      })
-      .catch(() => {
-        setIsError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
-
-  if (isError) {
-    return <div>Error</div>;
+  if (error) {
+    return <p>Error</p>;
   }
 
   if (isLoading) {
@@ -41,12 +24,12 @@ const PokedexPage: React.FC = () => {
         <div className={s.layout}>
           <div className={s.searchFilter}>
             <Heading type="h3">
-              {totalPokemons} <b>Pokemons</b> for you to choose your favorite
+              {data.totalPokemons} <b>Pokemons</b> for you to choose your favorite
             </Heading>
             <input type="text" className={s.searchInput} />
           </div>
           <div className={s.pokemons}>
-            {pokemons.map((item) => (
+            {data.pokemons.map((item) => (
               <PokemonCard key={item.id} name={item.name} stats={item.stats} types={item.types} img={item.img} />
             ))}
           </div>
