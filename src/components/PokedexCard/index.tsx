@@ -32,7 +32,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img }) =>
           </div>
         </div>
         <div className={s.labelWrap}>
-          <span className={s.label}>{types[0]}</span>
+          {types.map((label) => {
+            return <span className={s.label}>{label}</span>;
+          })}
         </div>
       </div>
       <div className={s.pictureWrap}>
