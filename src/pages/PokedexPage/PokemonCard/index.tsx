@@ -1,20 +1,17 @@
 import React from 'react';
-import Heading from '../Heading';
+import Heading from '../../../components/Heading';
 
-import s from './PokedexCard.module.scss';
-
-interface IPokemonStats {
-  [n: string]: number;
-}
+import { PokemonsRequest } from '../Model';
+import s from './PokemonCard.module.scss';
 
 interface PokemonCardProps {
-  name: string;
-  stats: IPokemonStats;
-  types: string[];
-  img: string;
+  pokemon: PokemonsRequest;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
+  const { name, stats, types, img } = pokemon;
+  const { attack, defense } = stats;
+
   return (
     <div className={s.root}>
       <div className={s.infoWrap}>
@@ -23,18 +20,20 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, stats, types, img }) =>
         </Heading>
         <div className={s.statWrap}>
           <div className={s.statItem}>
-            <div className={s.statValue}>{stats.attack}</div>
+            <div className={s.statValue}>{attack}</div>
             Attack
           </div>
           <div className={s.statItem}>
-            <div className={s.statValue}>{stats.defense}</div>
+            <div className={s.statValue}>{defense}</div>
             Defense
           </div>
         </div>
         <div className={s.labelWrap}>
-          {types.map((label) => {
-            return <span className={s.label}>{label}</span>;
-          })}
+          {types.map((type: string) => (
+            <span key={type} className={s.label}>
+              {type}
+            </span>
+          ))}
         </div>
       </div>
       <div className={s.pictureWrap}>
