@@ -1,4 +1,6 @@
 import React from 'react';
+import { A } from 'hookrouter';
+
 import Heading from '../../../components/Heading';
 
 import { PokemonsRequest } from '../Model';
@@ -9,11 +11,11 @@ interface PokemonCardProps {
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
-  const { name, stats, types, img } = pokemon;
+  const { id, name, stats, types, img } = pokemon;
   const { attack, defense } = stats;
 
   return (
-    <div className={s.root}>
+    <A className={s.root} href={`pokedex/${id}`}>
       <div className={s.infoWrap}>
         <Heading type="h4" className={s.titleName}>
           {name}
@@ -39,7 +41,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
       <div className={s.pictureWrap}>
         <img src={img} alt={name} />
       </div>
-    </div>
+    </A>
   );
 };
 

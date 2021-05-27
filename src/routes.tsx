@@ -3,7 +3,7 @@ import HomePage from './pages/Home';
 import EmptyPage from './pages/EmptyPage';
 import PokedexPage from './pages/PokedexPage';
 import PokemonPage, { PokemonProps } from './pages/PokemonPage';
-// 123
+
 export enum LinkEnum {
   HOME = '/',
   POKEDEX = '/pokedex',
