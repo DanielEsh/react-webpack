@@ -1,21 +1,4 @@
-interface IConfig {
-  client: {
-    server: {
-      protocol: string;
-      host: string;
-    };
-    endpoint: {
-      [index: string]: {
-        method: string;
-        uri: {
-          pathname: string;
-        };
-      };
-    };
-  };
-}
-
-const config: IConfig = {
+export const config = {
   client: {
     server: {
       protocol: 'http',
@@ -32,6 +15,25 @@ const config: IConfig = {
         method: 'GET',
         uri: {
           pathname: '/api/v1/pokemon/{id}',
+        },
+      },
+      // FAKE API GET
+      createPokemon: {
+        method: 'POST',
+        uri: {
+          pathname: '/api/v1/pokemon/create',
+        },
+      },
+      updatePokemon: {
+        method: 'PATCH',
+        uri: {
+          pathname: '/api/v1/pokemon/{id}',
+        },
+      },
+      deletePokemon: {
+        method: 'DELETE',
+        uri: {
+          pathname: '/api/v1/pokemon/{id}/delete',
         },
       },
     },

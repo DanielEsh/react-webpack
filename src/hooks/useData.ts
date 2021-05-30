@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import request from '../utils/request';
+import req from '../utils/request';
 
 const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
   const [data, setData] = useState<T | null>(null);
@@ -10,7 +10,8 @@ const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
     const getData = async (): Promise<void> => {
       setIsLoading(true);
       try {
-        const result = await request(endpoint, query);
+        const result = await req<T>(endpoint, query);
+
         setData(result);
       } catch (e) {
         setIsError(true);
