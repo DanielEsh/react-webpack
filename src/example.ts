@@ -31,3 +31,15 @@ const sum = arr.reduce((previousValue, currentValue) => {
 });
 
 console.log(sum); // -> 15
+
+export const toCapitalizeFirstLetter = (str: string) => {
+  if (str.length === 0) {
+    return str;
+  }
+
+  const chars = str.split('');
+  chars[0] = chars[0].toUpperCase();
+  return chars.join('');
+};
+
+export default toCapitalizeFirstLetter;
